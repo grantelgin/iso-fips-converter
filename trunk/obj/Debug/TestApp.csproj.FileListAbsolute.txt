@@ -1,0 +1,8 @@
+C:\Users\baz\Downloads\SubscriptionDateCreator\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\baz\Downloads\SubscriptionDateCreator\obj\Debug\TestApp.Form1.resources
+C:\Users\baz\Downloads\SubscriptionDateCreator\obj\Debug\TestApp.csproj.GenerateResource.Cache
+C:\Users\baz\Downloads\SubscriptionDateCreator\obj\Debug\SubscriptionDateCreator.Properties.Resources.resources
+C:\Users\baz\Downloads\SubscriptionDateCreator\bin\Debug\SubscriptionDateCreator.exe
+C:\Users\baz\Downloads\SubscriptionDateCreator\bin\Debug\SubscriptionDateCreator.pdb
+C:\Users\baz\Downloads\SubscriptionDateCreator\obj\Debug\SubscriptionDateCreator.exe
+C:\Users\baz\Downloads\SubscriptionDateCreator\obj\Debug\SubscriptionDateCreator.pdb
