@@ -2,7 +2,6 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 
-
 /// <summary>
 /// Summary description for StringLib
 /// </summary>
