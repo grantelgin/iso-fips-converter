@@ -14,19 +14,18 @@ using System.Collections;
 /// </summary>
 public static class StringLib
 {
-    //4 stores means THERE MUST BE 4 chars in values string, etc.
-    //public static string[] OnlineMusicStoreNames ={ "Amazon", "Emusic", "iTunes", "Rhapsody" };
-    //public static string OnlineMusicStoreValues ="aeir";
-
-
-    //public static string[] OnlineMusicStoreNames ={ "Amazon", "Emusic", "iTunes", "Rhapsody" };
-    //public static string OnlineMusicStoreValues = "aeir";
+    public static string[] MonthsOfTheYear = { String.Empty, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+    public static string[] MonthsOfTheYearShort = { String.Empty, "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+    private static string PWAllChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_![]{}?$&£#";
+    private static string UsernameChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_![]{}?$&";
+    private static string EntitynameChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_![]{}?$& ,£";
 
     public static bool IsDouble(string doubleStr)
     {
         double d = 0.0;
         return double.TryParse(doubleStr, out d);
     }
+   
     public static double StrToDoubleDef(string doubleStr, double defaultValue)
     {
         double d = 0.0;
@@ -48,84 +47,6 @@ public static class StringLib
         return string.Format("{0}{1}", s, i);
     }
 
-
- 
-
-
-
-    public static string[] MonthsOfTheYear ={ String.Empty, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-    public static string[] MonthsOfTheYearShort ={ String.Empty, "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-
-
-
-
-    public static string[] pageNames ={"",
-                                        "article.aspx",
-                                        "artists.aspx",
-                                        "default.aspx",
-                                        "download.aspx",
-                                        "friendreq.aspx",
-                                        "friends.aspx",
-                                        "mixplay.aspx",
-                                        "mixtapecreate.aspx",
-                                        "mixtapeplay.aspx",
-                                        "mymixes.aspx",
-                                        "mystats.aspx",
-                                        "mystuff.aspx",
-                                        "promocreate.aspx",
-                                        "search.aspx",
-                                        "sentmsgs.aspx",
-                                        "track_upload.aspx",
-                                        "usereditprofile.aspx",
-                                        "userprofile.aspx",
-                                        "users.aspx"};
-
-
-    public static string[] pageActivities  ={""
-                                            ,"Reading a news article"
-                                            ,"Managing favorite artists"
-                                            ,"Browsing the homepage"
-                                            ,"Downloading Rocudo software"
-                                            ,"Managing friend requests"
-                                            ,"Managing friends"
-                                            ,"Listening to a Remix"
-                                            ,"Creating a Mix"
-                                            ,"Playing a Mix"
-                                            ,"Managing/Viewing Remixes"
-                                            ,"Viewing Stats"
-                                            ,"Viewing MyStuff"
-                                            ,"Creating a Promo"
-                                            ,"Searching Rocudo.com"
-                                            ,"Managing Outbox"
-                                            ,"Managing tracks"
-                                            ,"Editing personal profile"
-                                            ,"Viewing a personal profile"
-                                            ,"Searching Rocudo.com"};
-
-
-
-
-
-
-
-
-
-
-
-
-    private static string[] userAgents = { "explorer", "gecko", "opera", "safari", "konqueror" };
-    private static string[] oses = { "windows", "mac os", "linux" };
-
-
-
-    //private static Regex isGuid = new Regex(@"^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$", RegexOptions.Compiled);
-    //private static string PWLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    //private static string PWNumbers = "0123456789";
-    //private static string PWSpecialChars = "-_!";
-    private static string PWAllChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_![]{}?$&£#";
-    private static string UsernameChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_![]{}?$&";
-    private static string EntitynameChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_![]{}?$& ,£";
-
     public enum SiteAreaContext
     {
         Homepage,
@@ -144,7 +65,6 @@ public static class StringLib
         Fans,
         Nowhere
     }
-
 
     public struct NameIntPair
     {
@@ -171,59 +91,6 @@ public static class StringLib
         public string SessionId;
     }
 
-
-    public static string ActivitityNameFromPageName(string pageName)
-    {
-        pageName = pageName.ToLower();
-        int index = Array.IndexOf(StringLib.pageNames, pageName);
-
-        if ((index < 0) || (index > pageActivities.Length - 1))
-        {
-            return string.Empty;
-        }
-        else
-        {
-            return StringLib.pageActivities[Array.IndexOf(StringLib.pageNames, pageName)];
-        }
-    }
-
-    public static int ActivitityNumberFromPageName(string pageName)
-    {
-        if (pageName.Length == 0)
-            return 0;
-
-
-        pageName = pageName.ToLower();
-        int index = Array.IndexOf(StringLib.pageNames, pageName);
-
-        if ((index < 0) || (index > pageActivities.Length - 1))
-        {
-            return 0;
-        }
-        else
-        {
-            return index;
-        }
-    }
-
-    public static string ActivitityNameFromActivitityNumber(int actNum)
-    {
-        if ((actNum < 0) || (actNum > pageActivities.Length - 1))
-        {
-            return string.Empty;
-        }
-        else
-        {
-            return pageActivities[actNum];
-        }
-    }
-
-
-
- 
-
-
-
     public static string StringReplace(string s, string OldPattern, string NewPattern)
     {
         if ((OldPattern == null) || (NewPattern == null) || (s == null))
@@ -232,7 +99,6 @@ public static class StringLib
         }
         else return s.Replace(OldPattern, NewPattern);
     }
-
 
     public static int GetRandomNum(int min, int max)
     {
@@ -245,13 +111,6 @@ public static class StringLib
 
         return RandomClass.Next(min, max);
     }
-
-
-
-
-
-
-
 
 	public static string MD5String(string s)
     {
@@ -279,14 +138,6 @@ public static class StringLib
         return sb.ToString();
     }
 
-
-
-
-
-
-
-
-
     public static string SHA1String(string s)
     {
         // First we need to convert the string into bytes, which
@@ -312,29 +163,6 @@ public static class StringLib
         // And return it
         return sb.ToString();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public static bool IsValidEmailFormat(string emailAddress)
     {
@@ -376,7 +204,6 @@ public static class StringLib
         return true;
     }
 
-
     public static bool IsValidArtistOrLabelName(string entityname)
     {
         entityname = entityname.Trim();
@@ -396,15 +223,10 @@ public static class StringLib
         return true;
     }
 
-
-   
-
-
     public static string GetNewConfirmCode()
     {
         return Guid.NewGuid().ToString();
     }
-
 
     public static string Reverse(string str)
     {
@@ -444,7 +266,6 @@ public static class StringLib
         //return new string(charArray);
     }
 
-
     public static string GetUniqueString(int maxSize)
     {
         char[] chars = new char[40];
@@ -462,8 +283,6 @@ public static class StringLib
         }
         return result.ToString();
     }
-
-
 
     public static string GetStringPart(string s, char delimiter, int partnum)
     {
@@ -523,7 +342,6 @@ public static class StringLib
             return o.ToString();
         }
     }
-
 
     public static int DBNullToInt(Object o)
     {
@@ -595,7 +413,6 @@ public static class StringLib
         }
     }
 
-
     public static bool IsInt(string s)
     {
         if (s == null)
@@ -666,36 +483,6 @@ public static class StringLib
             return false;
     }
 
-
-    /*
-     
-     Fast remove duplcates
-         static List<string> removeDuplicates(List<string> inputList)
-        {
-            List<string> finalList = new List<string>();
-            foreach (string currValue in inputList)
-            {
-                if (!Contains(finalList, currValue))
-                {
-                    finalList.Add(currValue);
-                }
-            }
-            return finalList;
-        }
-        static bool Contains(List<string> list, string comparedValue)
-        {
-            foreach(string listValue in list)
-            {
-                if (listValue == comparedValue)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-     
-     */
-
     public static string GetNotMoreThanNChars(string s, int count)
     {
         if (s.Length >= count)
@@ -718,8 +505,6 @@ public static class StringLib
         return s.Trim();
     }
 
-
-
     public static string StringCollToCSString(StringCollection sc)
     {
         StringBuilder sb = new StringBuilder();
@@ -731,9 +516,6 @@ public static class StringLib
 
         return sb.ToString().Trim();
     }
-
-
-
 
     public static bool StringIsNumeric(string s)
     {
@@ -782,24 +564,6 @@ public static class StringLib
         }
     }
 
-
-
-    public static string GetTagListHyperLinks(string tags)
-    {
-        char[] sep ={ ',' };
-        string[] tagArray;
-        tags = tags.Replace(" ", string.Empty);
-        tagArray = tags.Split(sep);
-        StringBuilder sb = new StringBuilder();
-
-        foreach (string s in tagArray)
-        {
-            sb.Append("<a href=\"news.aspx?tag=" + s + "\">" + s + "</a> &nbsp;");
-        }
-
-        return sb.ToString();
-    }
-
     public static int StrToIntDef(string s, int d)
     {
         if (s == null) return d;
@@ -826,9 +590,6 @@ public static class StringLib
 
         return d.ToString();
     }
-
-
-
 
     public static int[] GetIntsFromCommaString(string s)
     {
@@ -992,7 +753,6 @@ public static class StringLib
         return result;
     }
 
-
     public static string LimitStringLength(string s, int maxAllowedLength)
     {
         if (s == null)
@@ -1029,8 +789,6 @@ public static class StringLib
             return String.Concat(s.Substring(0, maxAllowedLength - 3).Trim(), el);
         }
     }
-
-
 
     public static bool DBNullToBool(object obj)
     {
@@ -1077,7 +835,6 @@ public static class StringLib
         return String.Format("{0}_{1}", RandomIntegerString(5), title);
     }
 
-
     public static string RandomIntegerString(int size)
     {
         string charSet = "0123456789";
@@ -1090,17 +847,12 @@ public static class StringLib
         return builder.ToString();
     }
 
-
-
-
-
     public static int IntOverIntAsPercent(int enumerator, int denominator)
     {
         double d = Convert.ToDouble(denominator);
         double e = Convert.ToDouble(enumerator);
         return Convert.ToInt32(Math.Ceiling( (e / d) * 100));
     }
-
 
     public static string MakeUsernameFromEntityName(string EntityName)
     {
@@ -1126,7 +878,6 @@ public static class StringLib
         else return 0;
     }
 
-
     public static string BoolToOneZeroStr(bool b)
     {
         if (b) return "1";
@@ -1141,49 +892,7 @@ public static class StringLib
 
         return new Uri(Url).Host;
     }
-
-    public static void GetBrowserAndOs(string userAgent, out int browser, out int os)
-    {
-
-        if (userAgent == null)
-        {
-            browser = -1;
-            os = -1;
-            return;
-        }
-
-        userAgent = userAgent.ToLower();
-
-        browser = -1;
-        for (int i = 0; i < userAgents.Length; i++)
-        {
-            if (userAgent.IndexOf(userAgents[i]) >= 0)
-            {
-                browser = i;
-                break;
-            }
-        }
-        if (browser == -1)
-            browser = 0;
-
-
-
-        os = -1;
-        for (int i = 0; i < oses.Length; i++)
-        {
-            if (userAgent.IndexOf(oses[i]) > 0)
-            {
-                os = i;
-                break;
-            }
-        }
-        if (os == -1)
-            os = 0;
-
-
-
-    }
-
+   
     public static decimal GetBPMDoubleFromStr(string bpmStr)
     {
         decimal d = 0.0M;
@@ -1203,8 +912,6 @@ public static class StringLib
         if ((d > 180.0M) || (d < 60M)) return 0.0M;
         else return d;
     }
-
-
     /// <summary>
     /// Returns the number of somma seperated integers in the string. Returns -1 if the 
     /// string does not consist purely of comma seperated integers. (spaces are allowed in string)
@@ -1263,17 +970,12 @@ public static class StringLib
         return true;
     }
 
-
-
     public static int BoolToOneOrZero(bool b)
     {
         if (b)
             return 1;
         else return 0;
     }
-
-
-
 
     public static string StringArrayToString(string[] strs, string seperator)
     {
@@ -1334,7 +1036,6 @@ public static class StringLib
         return sb.ToString();
     }
 
-
     public static int GetCRandomNum(int min, int max)
     {
         if (max == min)
@@ -1357,8 +1058,6 @@ public static class StringLib
         // based, so we add one.
         return Math.Abs(min + (rand % (max - min)));
     }
-
-
    
     public static string ChangeFileExtension(string fileName, string newExt)
     {
@@ -1376,6 +1075,4 @@ public static class StringLib
             return false;
         }
     }
-
-
 }
