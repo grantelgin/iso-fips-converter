@@ -28,24 +28,11 @@ public static class StringLib
 
     public static int GetCRandomNum(int min, int max)
     {
-        if (max == min)
-            return min;
-
-        // Create a byte array to hold the random value.
+        if (max == min) return min;
         byte[] randomNumber = new byte[4];
-
-        // Create a new instance of the RNGCryptoServiceProvider.
         RNGCryptoServiceProvider Gen = new RNGCryptoServiceProvider();
-
-        // Fill the array with a random value.
         Gen.GetBytes(randomNumber);
-
-        // Convert the byte to an integer value to make the modulus operation easier.
         int rand = Math.Abs(BitConverter.ToInt32(randomNumber, 0));
-
-        // Return the random number mod the number
-        // of sides.  The possible values are zero-
-        // based, so we add one.
         return Math.Abs(min + (rand % (max - min)));
     }
 }
